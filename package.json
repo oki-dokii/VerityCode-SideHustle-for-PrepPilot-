@@ -1,0 +1,42 @@
+{
+  "name": "veritycode",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"tsx watch server/index.ts\" \"vite --host 127.0.0.1\"",
+    "build": "tsc --noEmit && vite build",
+    "start": "tsx server/index.ts",
+    "test": "tsx --test tests/*.test.ts",
+    "test:e2e": "playwright test",
+    "db:start": "bash scripts/local-db.sh",
+    "runner:smoke": "tsx scripts/runner-smoke.ts",
+    "format": "prettier --write server web shared tests scripts/*.ts *.ts",
+    "vision:setup": "node --import tsx scripts/vision-setup.ts"
+  },
+  "dependencies": {
+    "@mediapipe/tasks-vision": "0.10.32",
+    "@monaco-editor/react": "4.7.0",
+    "dotenv": "16.5.0",
+    "express": "5.1.0",
+    "monaco-editor": "0.52.2",
+    "pg": "8.16.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.1",
+    "@types/express": "5.0.3",
+    "@types/node": "22.15.30",
+    "@types/pg": "8.15.4",
+    "@types/react": "19.1.6",
+    "@types/react-dom": "19.1.6",
+    "@vitejs/plugin-react": "4.5.2",
+    "concurrently": "9.1.2",
+    "prettier": "3.5.3",
+    "tsx": "4.20.3",
+    "typescript": "5.8.3",
+    "vite": "6.4.1"
+  }
+}
